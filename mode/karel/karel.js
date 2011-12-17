@@ -12,10 +12,10 @@ CodeMirror.defineMode("karel", function(conf) {
     var tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
     var identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
 
-    var wordOperators = wordRegexp([]);
+    var wordOperators = wordRegexp(['not', 'and', 'or']);
     var commonkeywords = ['go', 'turn', 'put', 'get', 'repeat',
                           'while', 'if', 'else', 'def'];
-    var commontypes = ['home', 'north', 'wall', 'gem', 'empty', 'and', 'or', 'not'];
+    var commontypes = ['home', 'north', 'wall', 'gem', 'empty'];
     var ka2 = {'types': ['basestring', 'buffer', 'file', 'long', 'unicode',
                          'xrange'],
                'keywords': ['exec', 'print']};
