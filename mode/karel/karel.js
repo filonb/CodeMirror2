@@ -14,7 +14,7 @@ CodeMirror.defineMode("karel", function(conf) {
 
     var wordOperators = wordRegexp(['and', 'or', 'not']);
     var commonkeywords = ['go', 'turn', 'put', 'get', 'repeat',
-                          'while', 'if', 'else'];
+                          'while', 'if', 'else', 'def'];
     var commontypes = ['home', 'north', 'wall', 'gem', 'empty'];
     var ka2 = {'types': ['basestring', 'buffer', 'file', 'long', 'unicode',
                          'xrange'],
