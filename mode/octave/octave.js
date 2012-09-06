@@ -5,7 +5,7 @@ CodeMirror.defineMode("octave", function(conf, parserConf) {
     
     var singleOperators = new RegExp("^[\\+\\-\\*/&|\\^~<>!@']");
     var singleDelimiters = new RegExp('^[\\(\\[\\{\\},:=;]');
-    var doubleOperators = new RegExp("^((==)|(~=)|(<=)|(>=)|(<<)|(>>))");
+    var doubleOperators = new RegExp("^((==)|(~=)|(<=)|(>=)|(<<)|(>>)|(\\.[\\+\\-\\*/\\^\\\\]))");
     var doubleDelimiters = new RegExp("^((!=)|(\\+=)|(\\-=)|(\\*=)|(/=)|(&=)|(\\|=)|(\\^=))");
     var tripleDelimiters = new RegExp("^((>>=)|(<<=))");
     var expressionEnd = new RegExp("^[\\]\\)]");
