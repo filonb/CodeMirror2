@@ -1,0 +1,23 @@
+span.cm-ka-delimiter,
+span.cm-ka-special {color: #666666;}
+
+span.cm-ka-operator {color: #666666;}
+
+span.cm-ka-error {background-color: #660000; color: #FFFFFF;}
+
+span.cm-ka-keyword {color: #770088;}
+
+span.cm-ka-number {color: #228811;}
+
+span.cm-ka-identifier,
+span.cm-ka-func {color: black;}
+
+span.cm-ka-type,
+span.cm-ka-decorator {color: #0000FF;}
+
+span.cm-ka-comment {color: #AA7700;}
+
+span.cm-ka-string,
+span.cm-ka-bytes,
+span.cm-ka-raw,
+span.cm-ka-unicode {color: #AA2222;}
