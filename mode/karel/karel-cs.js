@@ -15,7 +15,7 @@ CodeMirror.defineMode("karel-cs", function(conf) {
     var wordOperators = wordRegexp(['opak', 'a', 'nebo']);
     var commonkeywords = ['krok', 'doleva', 'doprava', 'poloz', 'zvedni', 'opakuj',
     'dokud', 'kdyz', 'tak', 'def'];
-    var commontypes = ['doma', 'sever', 'zed', 'diamant', 'podnos', 'prazdny'];
+    var commontypes = ['doma', 'sever', 'zed', 'kamen', 'diamant', 'podnos', 'prazdny'];
     var commonBlockKeywords = ['opakuj', 'dokud', 'kdyz', 'tak', 'def'];
     var ka2 = {
         'types': ['basestring', 'buffer', 'file', 'long', 'unicode',
