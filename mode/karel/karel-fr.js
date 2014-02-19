@@ -15,7 +15,7 @@ CodeMirror.defineMode("karel-fr", function(conf) {
     var wordOperators = wordRegexp(['pas', 'et', 'ou']);
     var commonkeywords = ['avancer', 'gauche', 'droite', 'deposer', 'prendre', 'repeter',
     'tantque', 'si', 'autre', 'def'];
-    var commontypes = ['maison', 'nord', 'mur', 'roche', 'gemme', 'anneau', 'marque', 'vide'];
+    var commontypes = ['maison', 'nord', 'vide', 'acide', 'ancre', 'os', 'boite', 'buisson', 'cactus', 'mais', 'feu', 'gemme', 'meduse', 'marque', 'mine', 'paume', 'usine', 'radiation', 'roche', 'scorpion', 'crane', 'pierre', 'moignon', 'tombe', 'torpille', 'anneau', 'arbre', 'mur', 'eau', 'bois'];
     var commonBlockKeywords = ['repeter', 'tantque', 'si', 'autre', 'def'];
     var ka2 = {
         'types': ['basestring', 'buffer', 'file', 'long', 'unicode',
