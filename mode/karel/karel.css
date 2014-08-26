@@ -21,3 +21,6 @@ span.cm-ka-string,
 span.cm-ka-bytes,
 span.cm-ka-raw,
 span.cm-ka-unicode {color: #AA2222;}
+
+span.cm-ka-indent {background-color: aqua;}
+span.cm-ka-dedent {background-color: blue;}
