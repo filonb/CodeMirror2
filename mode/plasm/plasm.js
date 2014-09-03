@@ -12,7 +12,7 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
     var tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
     var identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
     var assignOperators = new RegExp("^\\W*((=)|(\\+=)|(-=)|(/=)|(\\*=))");
-    var funcIdentifiers = new RegExp("^[_A-Z][_A-Z0-9]*");
+    var funcIdentifiers = new RegExp("^[_A-Z][_A-Z0-9]*$");
 
     var wordOperators = wordRegexp(['and', 'or', 'not', 'is', 'in']);
     var commonkeywords = ['as', 'assert', 'break', 'class', 'continue',
