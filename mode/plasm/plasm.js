@@ -31,6 +31,45 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
                           'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple',
                           'type', 'vars', 'zip', '__import__', 'NotImplemented',
                           'Ellipsis', '__debug__'];
+    var customGroups = [
+                    // group 0
+                        ['CUBE', 'SQUARE', 'SQUARE3D', 'BOX', 'BRICK', 'RECTANGLE', 'RECTANGLE3D', 
+                        'HEXAHEDRON', 'SIMPLEX', 'CHULL', 'INTERVALS', 'RING', 'TUBE', 'RING3D', 
+                        'CIRCLE', 'CIRCLE3D', 'ARC', 'ARC3D', 'CYLINDER', 'CYL', 'SPHERE', 'TORUS', 
+                        'DONUT', 'ELBOW', 'CONE', 'PYRAMID', 'TCONE', 'TRUNCONE', 'DODECAHEDRON', 
+                        'ICOSAHEDRON', 'TETRAHEDRON', 'TRIANGLE', 'TRIANGLE3D', 'QUAD', 'QUADRILATERAL', 
+                        'BEZIER1', 'BEZIER2', 'BEZIER3', 'COONSPATCH', 'RULEDSURFACE', 'PROFILEPRODSURFACE', 
+                        'ROTATIONALSURFACE', 'ROSURFACE', 'ROSURF', 'ROTATIONALSOLID', 'ROSOLID', 'ROSOL', 
+                        'ROTATIONALSHELL', 'ROSHELL', 'CYLINDRICALSURFACE', 'CYSURFACE', 'CYSURF', 
+                        'CONICALSURFACE', 'COSURFACE', 'COSURF', 'CUBICHERMITE1', 'CUBICHERMITE2', 
+                        'CUBICHERMITE3', 'STAR', 'PRISM', 'REFDOMAIN', 'REFDOMAIN3D', 'UNITSQUARE', 
+                        'UNITCUBE', 'TANGRAM1', 'TANGRAM2', 'TANGRAM3', 'TANGRAM4', 'TANGRAM5', 
+                        'TANGRAM6', 'TANGRAM7', 'POINT'],
+                    // group 1
+                        ['MOVE', 'M', 'SCALE', 'S', 'ROTATERAD', 'ROTATE', 'R'],
+                    // group 2
+                        ['ERASE', 'SPLIT', 'COPY', 'WELD', 'UNION', 'STRUCT', 'INTERSECTION', 'I', 
+                        'SUBTRACT', 'DIFFERENCE', 'DIFF', 'XOR', 'JOIN', 'PRODUCT', 'POWER', 'GRID', 
+                        'TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'FRONT', 'REAR', 'MAP', 'MIRROR', 
+                        'SOLIDIFY', 'EXTRUDE'],
+                    // group 3
+                        ['SHOW', 'SIZEX', 'SIZEY', 'SIZEZ', 'SIZE', 'MINX', 'MINY', 'MINZ', 'MAXX', 
+                        'MAXY', 'MAXZ', 'GETDIM', 'COLOR', 'C', 'MATERIAL', 'TEXTURE', 'IS2D', 'IS3D', 
+                        'EMPTYSET', 'SUBSET', 'DISJOINT', 'HASBOX2D', 'HASNTBOX2D', 'ISINBOX2D', 
+                        'HASBOX3D', 'HASNTBOX3D', 'ISINBOX3D', 'SIZETEST2D', 'SIZETEST3D', 'BBTEST2D', 
+                        'BBTEST3D', 'SIZEMATCH2D', 'SIZEMATCH3D', 'POSITIONTEST2D', 'POSITIONTEST3D', 
+                        'PRINTSIZE', 'EXTREMA', 'EXTREMS', 'EXTREMES', 'VALIDATE'],
+                    // group 4
+                        ['GRAY', 'GREY', 'SAND', 'LIGHTGREEN', 'GREEN', 'DARKGREEN', 'BLACK', 'LIGHTBLUE', 
+                        'BLUE', 'DARKBLUE', 'LIGHTBROWN', 'BROWN', 'DARKBROWN', 'LIME', 'MAROON', 'OLIVE', 
+                        'TEAL', 'NAVY', 'NAVYBLUE', 'SKYBLUE', 'CRIMSON', 'CORAL', 'SALMON', 'KHAKI', 
+                        'TURQUOISE', 'ORCHID', 'BEIGE', 'WHEAT', 'LIGHTCYAN', 'CYAN', 'DARKCYAN', 
+                        'PINK', 'LIGHTMAGENTA', 'MAGENTA', 'DARKMAGENTA', 'ORANGE', 'DARKORANGE', 
+                        'PURPLE', 'INDIGO', 'VIOLET', 'WHITE', 'LIGHTRED', 'RED', 'DARKRED', 'YELLOW', 
+                        'DARKYELLOW', 'STRAWBERRY', 'RASPBERRY', 'BLUEBERRY', 'PEACH', 'BANANA', 'MINT', 
+                        'VANILLA', 'LEMON', 'CHOCOLATE', 'CANDY', 'BRASS', 'COPPER', 'BRONZE', 'SILVER', 
+                        'GOLD', 'WOOD']
+    ]
     var py2 = {'builtins': ['apply', 'basestring', 'buffer', 'cmp', 'coerce', 'execfile',
                             'file', 'intern', 'long', 'raw_input', 'reduce', 'reload',
                             'unichr', 'unicode', 'xrange', 'False', 'True', 'None'],
@@ -49,6 +88,10 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
     }
     var keywords = wordRegexp(commonkeywords);
     var builtins = wordRegexp(commonBuiltins);
+    var customKeywords = [];
+    for (var i=0; i<customGroups.length; i++) {
+        customKeywords.push(wordRegexp(customGroups[i]));
+    }
 
     var indentInfo = null;
 
@@ -145,6 +188,11 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
         if (stream.match(builtins)) {
             return 'builtin';
         }
+        
+        for (var i=0; i<customKeywords.length; i++)
+            if (stream.match(customKeywords[i]))
+                return 'plasm-custom'+i;
+        
         var variable = stream.match(identifiers) 
         if (variable) {
             if (stream.match(assignOperators)) {
