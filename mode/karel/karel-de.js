@@ -2,7 +2,7 @@ CodeMirror.defineMode("karel-de", function(conf) {
     var ERRORCLASS = 'ka-error';
     
     function wordRegexp(words) {
-        return new RegExp("^((" + words.join(")|(") + "))\\b");
+        return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
     }
     
     var singleOperators = new RegExp("^[\\+\\-\\*/%&|\\^~<>!]");
@@ -40,7 +40,7 @@ CodeMirror.defineMode("karel-de", function(conf) {
     }
     var keywords = wordRegexp(commonkeywords);
     var types = wordRegexp(commontypes);
-    var blockKeywords = new RegExp("^(" + commonBlockKeywords.join("|") + ")$");
+    var blockKeywords = new RegExp("^(" + commonBlockKeywords.join("|") + ")$", "i");
 
     // tokenizers
     function tokenBase(stream, state) {
