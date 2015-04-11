@@ -46,7 +46,7 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
                         'UNITCUBE', 'TANGRAM1', 'TANGRAM2', 'TANGRAM3', 'TANGRAM4', 'TANGRAM5', 
                         'TANGRAM6', 'TANGRAM7', 'POINT'],
                     // group 1
-                        ['MOVE', 'M', 'SCALE', 'S', 'ROTATERAD', 'ROTATE', 'R'],
+                        ['MOVE', 'M', 'SCALE', 'S', 'ROTATERAD', 'ROTATE', 'R', 'FLIP'],
                     // group 2
                         ['ERASE', 'SPLIT', 'COPY', 'WELD', 'UNION', 'STRUCT', 'INTERSECTION', 'I', 
                         'SUBTRACT', 'DIFFERENCE', 'DIFF', 'XOR', 'JOIN', 'PRODUCT', 'POWER', 'GRID', 
