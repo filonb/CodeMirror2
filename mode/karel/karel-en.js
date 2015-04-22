@@ -247,8 +247,6 @@ CodeMirror.defineMode("karel-en", function(conf) {
             current = stream.current();
             if (style === 'ka-identifier') {
                 return 'ka-identifier';
-            } else {
-                return ERRORCLASS;
             }
         }
         
