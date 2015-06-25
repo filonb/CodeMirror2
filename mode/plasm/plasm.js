@@ -68,7 +68,7 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
                         'PURPLE', 'INDIGO', 'VIOLET', 'WHITE', 'LIGHTRED', 'RED', 'DARKRED', 'YELLOW', 
                         'DARKYELLOW', 'STRAWBERRY', 'RASPBERRY', 'BLUEBERRY', 'PEACH', 'BANANA', 'MINT', 
                         'VANILLA', 'LEMON', 'CHOCOLATE', 'CANDY', 'BRASS', 'COPPER', 'BRONZE', 'SILVER', 
-                        'GOLD', 'WOOD']
+                        'GOLD', 'WOOD', 'STEEL']
     ]
     var py2 = {'builtins': ['apply', 'basestring', 'buffer', 'cmp', 'coerce', 'execfile',
                             'file', 'intern', 'long', 'raw_input', 'reduce', 'reload',
