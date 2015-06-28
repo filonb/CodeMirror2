@@ -35,7 +35,7 @@
             token: function(stream) {
                 var spaces = stream.string.match(/^\s*/)[0].length;
                 if (stream.pos % 2 == 0 && stream.pos + 1 < spaces) {
-                    var indentLevel = Math.min(stream.pos / 2, 3);
+                    var indentLevel = (stream.pos / 2) % 6;
                     stream.pos++;
                     return cls + indentLevel;
                 } else if (stream.pos % 2 != 0) {
