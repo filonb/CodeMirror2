@@ -334,7 +334,13 @@ CodeMirror.defineMode("karel-pl", function(conf) {
         }
         
     };
-    return external;
+    
+    // overlay 'indentguides' mode over this mode
+    return CodeMirror.overlayMode(external, CodeMirror.getMode(conf, { 
+        name: "indentguides",
+        cls: 'karel-',
+        indentClasses: 6
+    }));
 });
 
 CodeMirror.defineMIME("text/x-karel", "karel-pl");
