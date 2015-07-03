@@ -329,7 +329,9 @@
       lineComment: "#",
       fold: "indent"
     };
-    return external;
+    
+    // overlay 'indentguides' mode over this mode
+    return CodeMirror.overlayMode(external, CodeMirror.getMode(conf, "indentguides"));
   });
 
   CodeMirror.defineMIME("text/x-python", "python");
