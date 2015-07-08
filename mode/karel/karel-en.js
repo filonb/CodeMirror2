@@ -1,4 +1,4 @@
-CodeMirror.defineMode("karel-en", function(conf) {
+CodeMirror.defineMode("karel-en", function(conf, parserConf) {
     var ERRORCLASS = 'ka-error';
     
     function wordRegexp(words) {
@@ -334,12 +334,12 @@ CodeMirror.defineMode("karel-en", function(conf) {
         
     };
     
-    // overlay 'indentguides' mode over this mode
-    return CodeMirror.overlayMode(external, CodeMirror.getMode(conf, { 
-        name: "indentguides",
-        cls: 'karel-',
-        indentClasses: 6
-    }));
+    if (parserConf.overlay != null) {
+        // overlay a mode over this mode
+        return CodeMirror.overlayMode(external, CodeMirror.getMode(conf, parserConf.overlay));
+    } else {
+        return external;
+    }
 });
 
 CodeMirror.defineMIME("text/x-karel", "karel-en");
