@@ -13,9 +13,11 @@ CodeMirror.defineMode("karel-es", function(conf, parserConf) {
     var identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
 
     var wordOperators = wordRegexp(['no', 'y', 'o']);
-    var commonkeywords = ['ve', 'va', 'paso', 'izquierda', 'izq', 'der', 'derecha', 'ponga', 'toma', 'recoge', 'repite',
-    'mientras', 'si', 'otro', 'def'];
-    var commontypes = ['hogar', 'municion', 'manzana', 'bola', 'platano', 'barril', 'beisbol', 'collar', 'bomba', 'libro', 'botella', 'cerebro', 'dulce', 'cereza', 'chip', 'coco', 'moneda', 'maiz', 'cangrejo', 'ojo', 'engranajes', 'gema', 'granada', 'pistola', 'sombrero', 'clave', 'lente', 'piruli', 'mapa', 'mascara', 'botiquin', 'pepita', 'petroleo', 'naranja', 'orquidea', 'perla', 'telefono', 'pastel', 'pildora', 'pipa', 'crispetas', 'patata', 'calabaza', 'radio', 'cinta', 'anillo', 'rosa', 'manta', 'blindaje', 'zapato', 'serpiente', 'arana', 'estrella', 'espada', 'tulipan', 'reloj', 'bandeja', 'senal', 'caja', 'bolsa', 'cesta', 'carro', 'pecho', 'boveda', 'neto', 'papelera', 'basurero', 'inodoro', 'bolsa', 'olla', 'acido', 'ancla', 'arbusto', 'cactus', 'silla', 'caja', 'fuego', 'medusa', 'mina', 'palma', 'planta', 'radiacion', 'roca', 'escorpion', 'craneo', 'piedra', 'munon', 'tabla', 'tumba', 'instrumentos', 'torpedo', 'arbol', 'muro', 'pared', 'agua'];
+    var commonkeywords = ['ve', 'camina', 'paso', 'izquierda', 'izq', 'derecha',
+        'der', 'pon', 'toma', 'recoge', 'coge', 'repite', 'mientras', 'si', 
+        'otro', 'def', 'devuelve', 'regresa', 'aum', 'reduce', 'gpsx', 'gpsy', 
+        'agrega', 'anexa', 'borra', 'tira'];
+    var commontypes = ['verdad', 'verdadero', 'falso', 'casa', 'norte', 'vacio', 'municion', 'manzana', 'pelota', 'platano', 'barril', 'beisbol', 'collar', 'bomba', 'libro', 'botella', 'cerebro', 'dulce', 'cereza', 'chip', 'coco', 'moneda', 'maiz', 'cangrejo', 'ojo', 'engranajes', 'gema', 'granada', 'pistola', 'sombrero', 'clave', 'llave', 'lente', 'piruli', 'mapa', 'mascara', 'botiquin', 'pepita', 'aceite', 'naranja', 'orquidea', 'perla', 'telefono', 'pastel', 'pildora', 'pipa', 'palomitas', 'patata', 'calabaza', 'radio', 'cinta', 'anillo', 'rosa', 'manta', 'escudo', 'zapato', 'serpiente', 'arana', 'estrella', 'espada', 'tulipan', 'reloj', 'bandeja', 'marco', 'caja', 'bolsa', 'cesta', 'carro', 'cofre', 'bodega', 'neto', 'papelera', 'basura', 'inodoro', 'cuenco', 'lata', 'acido', 'ancla', 'arbusto', 'cactus', 'silla', 'cajon', 'fuego', 'medusa', 'mina', 'palma', 'planta', 'radiacion', 'roca', 'escorpion', 'craneo', 'calavera', 'piedra', 'munon', 'tabla', 'tumba', 'herramientas', 'torpedo', 'arbol', 'pared', 'muro', 'agua'];
     var commonBlockKeywords = ['repite', 'mientras', 'si', 'otro', 'def'];
     var ka2 = {
         'types': ['basestring', 'buffer', 'file', 'long', 'unicode',
