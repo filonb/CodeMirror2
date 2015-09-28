@@ -1,8 +1,8 @@
-CodeMirror.defineMode("karel-fr", function(conf, parserConf) {
+CodeMirror.defineMode("karel", function(conf, parserConf) {
     var ERRORCLASS = 'ka-error';
     
     function wordRegexp(words) {
-        return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
+        return new RegExp("^((" + words.join(")|(") + "))(?:[^_A-Za-z\u00C0-\u017F0-9]|$)", "i");
     }
     
     var singleOperators = new RegExp("^[\\+\\-\\*/%&|\\^~<>!]");
@@ -10,34 +10,15 @@ CodeMirror.defineMode("karel-fr", function(conf, parserConf) {
     var doubleOperators = new RegExp("^((==)|(!=)|(<=)|(>=)|(<>)|(<<)|(>>)|(//)|(\\*\\*))");
     var doubleDelimiters = new RegExp("^((\\+=)|(\\-=)|(\\*=)|(%=)|(/=)|(&=)|(\\|=)|(\\^=))");
     var tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
-    var identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
+    var identifiers = new RegExp("^[_A-Za-z\u00C0-\u017F][_A-Za-z\u00C0-\u017F0-9]*");
 
-    var wordOperators = wordRegexp(['pas', 'et', 'ou']);
-    var commonkeywords = ['avancer', 'gauche', 'droite', 'deposer', 'prendre', 'repeter',
-    'tantque', 'si', 'autre', 'def'];
-    var commontypes = ['maison', 'nord', 'vide', 'acide', 'ancre', 'os', 'boite', 'buisson', 'cactus', 'mais', 'feu', 'gemme', 'meduse', 'marque', 'mine', 'paume', 'usine', 'radiation', 'roche', 'scorpion', 'crane', 'pierre', 'moignon', 'tombe', 'torpille', 'anneau', 'arbre', 'mur', 'eau', 'bois'];
-    var commonBlockKeywords = ['repeter', 'tantque', 'si', 'autre', 'def'];
-    var ka2 = {
-        'types': ['basestring', 'buffer', 'file', 'long', 'unicode',
-        'xrange'],
-        'keywords': ['exec', 'imprimer']
-        };
-    var ka3 = {
-        'types': ['bytearray', 'bytes', 'filter', 'map', 'memoryview',
-        'open', 'range', 'zip'],
-        'keywords': ['nonlocal']
-        };
-    var stringPrefixes;
+    var configKeywords = parserConf.keywords || {};
+    var wordOperators = wordRegexp(configKeywords.wordOperators);
+    var commonkeywords = configKeywords.commonkeywords;
+    var commontypes = configKeywords.commontypes;
+    var commonBlockKeywords = configKeywords.commonBlockKeywords;
 
-    if (!!conf.mode.version && parseInt(conf.mode.version, 10) === 3) {
-        commonkeywords = commonkeywords.concat(ka3.keywords);
-        commontypes = commontypes.concat(ka3.types);
-        stringPrefixes = new RegExp("^(([rb]|(br))?('{3}|\"{3}|['\"]))", "i");
-    } else {
-        commonkeywords = commonkeywords.concat(ka2.keywords);
-        commontypes = commontypes.concat(ka2.types);
-        stringPrefixes = new RegExp("^(([rub]|(ur)|(br))?('{3}|\"{3}|['\"]))", "i");
-    }
+    var stringPrefixes = new RegExp("^['\"]", "i");
     var keywords = wordRegexp(commonkeywords);
     var types = wordRegexp(commontypes);
     var blockKeywords = new RegExp("^(" + commonBlockKeywords.join("|") + ")$", "i");
@@ -246,8 +227,6 @@ CodeMirror.defineMode("karel-fr", function(conf, parserConf) {
             current = stream.current();
             if (style === 'ka-identifier') {
                 return 'ka-identifier';
-            } else {
-                return ERRORCLASS;
             }
         }
         
@@ -343,4 +322,4 @@ CodeMirror.defineMode("karel-fr", function(conf, parserConf) {
     }
 });
 
-CodeMirror.defineMIME("text/x-karel", "karel-fr");
+CodeMirror.defineMIME("text/x-karel", "karel");
