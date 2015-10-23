@@ -13,6 +13,7 @@ span.cm-ka-identifier,
 span.cm-ka-func {color: black;}
 
 span.cm-ka-type,
+span.cm-ka-three-dot,
 span.cm-ka-decorator {color: #0000FF;}
 
 span.cm-ka-comment {color: #AA7700;}
