@@ -54,6 +54,11 @@ CodeMirror.defineMode("karel", function(conf, parserConf) {
             return 'ka-comment';
         }
         
+        // Handle the three-dot symbol
+        if (stream.match(/\.{3}/)) {
+            return 'ka-three-dot';
+        }
+        
         // Handle Number Literals
         if (stream.match(/^[0-9\.]/, false)) {
             var floatLiteral = false;
