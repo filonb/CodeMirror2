@@ -2,7 +2,7 @@ CodeMirror.defineMode("karel", function(conf, parserConf) {
     var ERRORCLASS = 'ka-error';
     
     function wordRegexp(words) {
-        return XRegExp("^((" + words.join(")|(") + "))(?=[^\\pL0-9]|$)", "i");
+        return XRegExp("^((" + words.join(")|(") + "))(?=[^_\\pL0-9]|$)", "i");
     }
     
     var singleOperators = new RegExp("^[\\+\\-\\*/%&|\\^~<>!]");
