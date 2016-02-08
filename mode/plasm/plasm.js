@@ -188,10 +188,17 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
         if (stream.match(builtins)) {
             return 'builtin';
         }
-        
-        for (var i=0; i<customKeywords.length; i++)
-            if (stream.match(customKeywords[i]))
-                return 'plasm-custom'+i;
+
+        for (var i=0; i<customKeywords.length; i++) {
+            if (stream.match(customKeywords[i])) {
+                if (stream.match(assignOperators)) {
+                    return ERRORCLASS;
+                }
+                else {
+                    return 'plasm-custom'+i;      
+                }
+            }
+        }
         
         var variable = stream.match(identifiers) 
         if (variable) {
