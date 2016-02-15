@@ -53,7 +53,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         ['ERASE', 'SPLIT', 'COPY', 'WELD', 'UNION', 'STRUCT', 'INTERSECTION', 'I', 
                         'SUBTRACT', 'DIFFERENCE', 'DIFF', 'XOR', 'JOIN', 'PRODUCT', 'POWER', 'GRID', 
                         'TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'FRONT', 'REAR', 'MAP', 'MIRROR', 
-                        'SOLIDIFY', 'EXTRUDE', 'REVOLVE', 'SPIRAL', 'E',
+                        'SOLIDIFY', 'EXTRUDE', 'REVOLVE', 'SPIRAL', 'E', 'EXPORT',
                         'color', 'width'],
                     // group 3
                         ['SHOW', 'SIZEX', 'SIZEY', 'SIZEZ', 'SIZE', 'MINX', 'MINY', 'MINZ', 'MAXX', 
