@@ -46,7 +46,10 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
         ],
         [
             'GRAY', 'GREY', 'SAND', 'LIGHTGREEN', 'GREEN', 'DARKGREEN', 'BLACK', 'LIGHTBLUE', 'BLUE', 'DARKBLUE', 'LIGHTBROWN', 'BROWN', 'DARKBROWN', 'LIME', 'MAROON', 'OLIVE', 'TEAL', 'NAVY', 'NAVYBLUE', 'SKYBLUE', 'CRIMSON', 'CORAL', 'SALMON', 'KHAKI', 'TURQUOISE', 'ORCHID', 'BEIGE', 'WHEAT', 'LIGHTCYAN', 'CYAN', 'DARKCYAN', 'PINK', 'LIGHTMAGENTA', 'MAGENTA', 'DARKMAGENTA', 'ORANGE', 'DARKORANGE', 'PURPLE', 'INDIGO', 'VIOLET', 'WHITE', 'LIGHTRED', 'RED', 'DARKRED', 'YELLOW', 'DARKYELLOW', 'STRAWBERRY', 'RASPBERRY', 'BLUEBERRY', 'PEACH', 'BANANA', 'MINT', 'VANILLA', 'LEMON', 'CHOCOLATE', 'CANDY', 'BRASS', 'COPPER', 'BRONZE', 'SILVER', 'GOLD', 'WOOD', 'STEEL', 'SEDA', 'SEDIVA', 'ZELENA', 'CERNA', 'MODRA', 'HNEDA', 'ORANZOVA', 'RUZOVA', 'FIALOVA', 'BILA', 'CERVENA', 'RUDA', 'ZLUTA', 'OCEL', 'OCELOVA', 'MOSAZ', 'MOSAZNA', 'MED', 'MEDENA', 'BRONZ', 'BRONZOVA', 'STRIBRO', 'STRIBRNA', 'ZLATO', 'ZLATA', 'SZARY', 'SIWY', 'ZIELONY', 'CZARNY', 'NIEBIESKI', 'BRAZOWY', 'POMARANCZOVY', 'ROZOWY', 'PURPUROWY', 'BIALY', 'CZERWONY', 'ZOLTY', 'STAL', 'STALOWY', 'MOSIADZ', 'MIEDZ', 'BRAZ', 'SREBRO', 'SREBRNY', 'ZLOTO', 'ZLOTY', 'GRAU', 'GRUEN', 'GRUN', 'SCHWARZ', 'BLAU', 'BRAUN', 'ROSA', 'LILA', 'WEISS', 'ROT', 'GELB', 'STAHL', 'MESSING', 'KUPFER', 'SILBER', 'GRIS', 'VERDE', 'NEGRO', 'NEGRA', 'AZUL', 'MARRON', 'CIAN', 'ROSO', 'NARANJA', 'PURPURO', 'PURPURA', 'BLANCO', 'BLANCA', 'ROJO', 'ROJA', 'AMARILLO', 'AMARILLA', 'ACERO', 'LATON', 'COBRE', 'BRONCE', 'PLATA', 'ORO', 'GRIGIO', 'NERO', 'NERA', 'AZZURRO', 'AZZURRA', 'MARRONE', 'ROSOLARE', 'CIANO', 'DENTELLARE', 'ARANCIONE', 'ARANCIO', 'ARANCIA', 'VIOLA', 'PORPORA', 'BIANCO', 'BIANCA', 'ROSSO', 'ROSSA', 'GIALLO', 'GIALLA', 'ACCIAIO', 'OTTONE', 'RAME', 'BRONZO', 'ARGENTO', 'VERT', 'NOIR', 'BLEU', 'BRUN', 'ROSE', 'POURPRE', 'BLANC', 'ROUGE', 'JAUNE', 'ACIER', 'LAITON', 'CUIVRE', 'ARGENT', 'OR'
-        ]
+        ],
+        ['X'],
+        ['Y'],
+        ['Z']
     ];
     var py2 = {'builtins': ['apply', 'basestring', 'buffer', 'cmp', 'coerce', 'execfile',
                             'file', 'intern', 'long', 'raw_input', 'reduce', 'reload',
@@ -178,11 +181,11 @@ CodeMirror.defineMode("plasm", function(conf, parserConf) {
             }
         }
         
-        var variable = stream.match(identifiers) 
+        var variable = stream.match(identifiers);
         if (variable) {
             if (stream.match(assignOperators)) {
                 if (funcIdentifiers.test(variable)){
-                    return ERRORCLASS
+                    return ERRORCLASS;
                 }
             }
             return 'variable';
