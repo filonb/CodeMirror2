@@ -45,16 +45,17 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'CUBICHERMITE3', 'STAR', 'PRISM', 'REFDOMAIN', 'REFDOMAIN3D', 'UNITSQUARE', 
                         'UNITCUBE', 'TANGRAM1', 'TANGRAM2', 'TANGRAM3', 'TANGRAM4', 'TANGRAM5', 
                         'TANGRAM6', 'TANGRAM7', 'POINT', 'SHELL',
-                        'go', 'forward', 'fd', 'left', 'lt', 'right', 'rt', 'back', 'backward', 'bk', 'arc'],
+                        'go', 'forward', 'fd', 'left', 'lt', 'right', 'rt', 'back', 'backward', 'bk', 'arc',
+                        'up', 'down', 'roll', 'pitch', 'yaw'],
                     // group 1
                         ['MOVE', 'M', 'SCALE', 'S', 'ROTATERAD', 'ROTATE', 'R', 'FLIP',
-                        'up', 'down', 'penup', 'pendown', 'pu', 'pd'],
+                        'penup', 'pendown', 'pu', 'pd'],
                     // group 2
                         ['ERASE', 'SPLIT', 'COPY', 'WELD', 'UNION', 'STRUCT', 'INTERSECTION', 'I', 
                         'SUBTRACT', 'DIFFERENCE', 'DIFF', 'XOR', 'JOIN', 'PRODUCT', 'POWER', 'GRID', 
                         'TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'FRONT', 'REAR', 'MAP', 'MIRROR', 
                         'SOLIDIFY', 'EXTRUDE', 'REVOLVE', 'SPIRAL', 'E', 'EXPORT',
-                        'color', 'width'],
+                        'color', 'width', 'edges'],
                     // group 3
                         ['SHOW', 'SIZEX', 'SIZEY', 'SIZEZ', 'SIZE', 'MINX', 'MINY', 'MINZ', 'MAXX', 
                         'MAXY', 'MAXZ', 'GETDIM', 'COLOR', 'C', 'MATERIAL', 'TEXTURE', 'IS2D', 'IS3D', 
