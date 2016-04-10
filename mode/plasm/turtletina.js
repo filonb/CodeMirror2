@@ -76,7 +76,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'GOLD', 'WOOD', 'STEEL',
                         'extrude', 'rosol', 'rosurf', 'roshell', 'spiral'],
                     // group 5
-                        ['NCLabTurtle'],
+                        ['NCLabTurtle', 'NCLabTurtle3D'],
                     // group 6
                         ['goto', 'home', 'angle', 'setx', 'sety', 'setpos', 'setposition']
     ]
