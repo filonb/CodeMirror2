@@ -55,7 +55,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'SUBTRACT', 'DIFFERENCE', 'DIFF', 'XOR', 'JOIN', 'PRODUCT', 'POWER', 'GRID', 
                         'TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'FRONT', 'REAR', 'MAP', 'MIRROR', 
                         'SOLIDIFY', 'EXTRUDE', 'REVOLVE', 'SPIRAL', 'E', 'EXPORT',
-                        'color', 'width', 'edges'],
+                        'color', 'width', 'height', 'edges'],
                     // group 3
                         ['SHOW', 'SIZEX', 'SIZEY', 'SIZEZ', 'SIZE', 'MINX', 'MINY', 'MINZ', 'MAXX', 
                         'MAXY', 'MAXZ', 'GETDIM', 'COLOR', 'C', 'MATERIAL', 'TEXTURE', 'IS2D', 'IS3D', 
