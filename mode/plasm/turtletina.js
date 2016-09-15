@@ -63,7 +63,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'HASBOX3D', 'HASNTBOX3D', 'ISINBOX3D', 'SIZETEST2D', 'SIZETEST3D', 'BBTEST2D', 
                         'BBTEST3D', 'SIZEMATCH2D', 'SIZEMATCH3D', 'POSITIONTEST2D', 'POSITIONTEST3D', 
                         'PRINTSIZE', 'EXTREMA', 'EXTREMS', 'EXTREMES', 'VALIDATE',
-                        'show', 'hide', 'invisible', 'visible', 'reveal'],
+                        'show', 'hide', 'invisible', 'visible', 'reveal', 'export'],
                     // group 4
                         ['GRAY', 'GREY', 'SAND', 'LIGHTGREEN', 'GREEN', 'DARKGREEN', 'BLACK', 'LIGHTBLUE', 
                         'BLUE', 'DARKBLUE', 'LIGHTBROWN', 'BROWN', 'DARKBROWN', 'LIME', 'MAROON', 'OLIVE', 
@@ -73,7 +73,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'PURPLE', 'INDIGO', 'VIOLET', 'WHITE', 'LIGHTRED', 'RED', 'DARKRED', 'YELLOW', 
                         'DARKYELLOW', 'STRAWBERRY', 'RASPBERRY', 'BLUEBERRY', 'PEACH', 'BANANA', 'MINT', 
                         'VANILLA', 'LEMON', 'CHOCOLATE', 'CANDY', 'BRASS', 'COPPER', 'BRONZE', 'SILVER', 
-                        'GOLD', 'WOOD', 'STEEL',
+                        'GOLD', 'WOOD', 'STEEL', 'HONEY',
                         'extrude', 'rosol', 'rosurf', 'roshell', 'spiral'],
                     // group 5
                         ['NCLabTurtle', 'NCLabTurtle3D'],
