@@ -46,7 +46,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'UNITCUBE', 'TANGRAM1', 'TANGRAM2', 'TANGRAM3', 'TANGRAM4', 'TANGRAM5', 
                         'TANGRAM6', 'TANGRAM7', 'POINT', 'SHELL',
                         'go', 'forward', 'fd', 'left', 'lt', 'right', 'rt', 'back', 'backward', 'bk', 'arc',
-                        'up', 'down', 'roll', 'pitch', 'yaw'],
+                        'up', 'down', 'roll', 'pitch', 'yaw', 'rectangle', 'line', 'polyline', 'polydots'],
                     // group 1
                         ['MOVE', 'M', 'SCALE', 'S', 'ROTATERAD', 'ROTATE', 'R', 'FLIP',
                         'penup', 'pendown', 'pu', 'pd'],
