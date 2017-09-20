@@ -63,7 +63,7 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                         'HASBOX3D', 'HASNTBOX3D', 'ISINBOX3D', 'SIZETEST2D', 'SIZETEST3D', 'BBTEST2D', 
                         'BBTEST3D', 'SIZEMATCH2D', 'SIZEMATCH3D', 'POSITIONTEST2D', 'POSITIONTEST3D', 
                         'PRINTSIZE', 'EXTREMA', 'EXTREMS', 'EXTREMES', 'VALIDATE',
-                        'show', 'hide', 'invisible', 'visible', 'reveal', 'export'],
+                        'show', 'hide', 'invisible', 'visible', 'reveal', 'export', 'getx', 'gety'],
                     // group 4
                         ['GRAY', 'GREY', 'SAND', 'LIGHTGREEN', 'GREEN', 'DARKGREEN', 'BLACK', 'LIGHTBLUE', 
                         'BLUE', 'DARKBLUE', 'LIGHTBROWN', 'BROWN', 'DARKBROWN', 'LIME', 'MAROON', 'OLIVE', 
@@ -78,8 +78,12 @@ CodeMirror.defineMode("turtletina", function(conf, parserConf) {
                     // group 5
                         ['NCLabTurtle', 'NCLabTurtle3D'],
                     // group 6
-                        ['goto', 'home', 'angle', 'setx', 'sety', 'setpos', 'setposition']
-    ]
+                        ['goto', 'home', 'angle', 'setx', 'sety', 'setpos', 'setposition'],
+                    // group 7
+                        ['rancolor', 'ranwalk', 'ranturn', 'ranleft', 'ranright', 'rango', 'ranback', 'ranwidth', 'ranheight'],
+                    // group 8
+                        ['oncolor', 'colorprobe', 'lidar', 'lidarbeam']
+    ];
     var py2 = {'builtins': ['apply', 'basestring', 'buffer', 'cmp', 'coerce', 'execfile',
                             'file', 'intern', 'long', 'raw_input', 'reduce', 'reload',
                             'unichr', 'unicode', 'xrange', 'False', 'True', 'None'],
