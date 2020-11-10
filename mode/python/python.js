@@ -112,9 +112,9 @@
       if (stream.match(/^[0-9\.]/, false)) {
         var floatLiteral = false;
         // Floats
-        if (stream.match(/^\d*\.\d+(e[\+\-]?\d+)?/i)) { floatLiteral = true; }
-        if (stream.match(/^\d+\.\d*/)) { floatLiteral = true; }
-        if (stream.match(/^\.\d+/)) { floatLiteral = true; }
+        if (stream.match(/^(\d([_\d]*\d)*)*\.(\d([_\d]*\d)*)+(e[\+\-]?(\d([_\d]*\d)*)+)?/i)) { floatLiteral = true; }
+        if (stream.match(/^(\d([_\d]*\d)*)+\.(\d([_\d]*\d)*)*/)) { floatLiteral = true; }
+        if (stream.match(/^\.(\d([_\d]*\d)*)+/)) { floatLiteral = true; }
         if (floatLiteral) {
           // Float literals may be "imaginary"
           stream.eat(/J/i);
@@ -123,13 +123,13 @@
         // Integers
         var intLiteral = false;
         // Hex
-        if (stream.match(/^0x[0-9a-f]+/i)) intLiteral = true;
+        if (stream.match(/^0x[0-9a-f_]*[0-9a-f]+/i)) intLiteral = true;
         // Binary
-        if (stream.match(/^0b[01]+/i)) intLiteral = true;
+        if (stream.match(/^0b[01_]*[01]+/i)) intLiteral = true;
         // Octal
-        if (stream.match(/^0o[0-7]+/i)) intLiteral = true;
+        if (stream.match(/^0o[0-7_]*[0-7]+/i)) intLiteral = true;
         // Decimal
-        if (stream.match(/^[1-9]\d*(e[\+\-]?\d+)?/)) {
+        if (stream.match(/^\d+([_\d]*\d)*(e[\+\-]?\d+([_\d]*\d)*)?/)) {
           // Decimal literals may be "imaginary"
           stream.eat(/J/i);
           // TODO - Can you have imaginary longs?
