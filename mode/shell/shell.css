@@ -1,0 +1,12 @@
+span.cm-sh-meta {color: #757575;}
+span.cm-sh-comment {color: #B85C00;}
+span.cm-sh-operator {}
+span.cm-sh-attribute {color: #6161FF;}
+span.cm-sh-number {color: #7C875C;}
+span.cm-sh-prompt {color: #008A00;}
+span.cm-sh-quote {color: #008A00;}
+span.cm-sh-string {color: #e91c1c;}
+span.cm-sh-def {color: #8652FF;}
+span.cm-sh-builtin {color: #8652ff;}
+span.cm-sh-keyword {color: #cb00e6;}
+span.cm-sh-atom {color: #715eed;}
