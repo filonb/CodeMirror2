@@ -22,14 +22,14 @@ CodeMirror.defineMode('shell', function() {
   };
 
   // Atoms
-  define('atom', 'true false');
+  define('sh-atom', 'true false');
 
   // Keywords
-  define('keyword', 'if then do else elif while until for in esac fi fin ' +
+  define('sh-keyword', 'if then do else elif while until for in esac fi fin ' +
     'fil done exit set unset export function');
 
   // Commands
-  define('builtin', 'ab awk bash beep cat cc cd chown chmod chroot clear cp ' +
+  define('sh-builtin', 'ab awk bash beep cat cc cd chown chmod chroot clear cp ' +
     'curl cut diff echo find gawk gcc get git grep kill killall ln ls make ' +
     'mkdir openssl mv nc node npm ping ps restart rm rmdir sed service sh ' +
     'shopt shred source sort sleep ssh start stop su sudo tee telnet top ' +
@@ -52,32 +52,39 @@ CodeMirror.defineMode('shell', function() {
     if (ch === '#') {
       if (sol && stream.eat('!')) {
         stream.skipToEnd();
-        return 'meta'; // 'comment'?
+        return 'sh-meta'; // 'comment'?
       }
       stream.skipToEnd();
-      return 'comment';
+      return 'sh-comment';
     }
     if (ch === '$') {
       state.tokens.unshift(tokenDollar);
       return tokenize(stream, state);
     }
     if (ch === '+' || ch === '=') {
-      return 'operator';
+      return 'sh-operator';
     }
     if (ch === '-') {
       stream.eat('-');
       stream.eatWhile(/\w/);
-      return 'attribute';
+      return 'sh-attribute';
     }
     if (/\d/.test(ch)) {
       stream.eatWhile(/\d/);
       if(stream.eol() || !/\w/.test(stream.peek())) {
-        return 'number';
+        return 'sh-number';
       }
     }
+    // match username@hostname:
+    if (stream.match(/^[^\n\r\s]+?@[^\n\r\s]+?:~/i, false)) {
+        if (stream.match(/^[^\n\r\s]+?@[^\n\r\s:]+/i)) {
+            return 'sh-prompt';
+        }
+    }
+    
     stream.eatWhile(/[\w-]/);
     var cur = stream.current();
-    if (stream.peek() === '=' && /\w+/.test(cur)) return 'def';
+    if (stream.peek() === '=' && /\w+/.test(cur)) return 'sh-def';
     return words.hasOwnProperty(cur) ? words[cur] : null;
   }
 
@@ -100,7 +107,7 @@ CodeMirror.defineMode('shell', function() {
       if (end || !escaped) {
         state.tokens.shift();
       }
-      return (quote === '`' || quote === ')' ? 'quote' : 'string');
+      return (quote === '`' || quote === ')' ? 'sh-quote' : 'sh-string');
     };
   };
 
@@ -117,7 +124,7 @@ CodeMirror.defineMode('shell', function() {
       stream.eat('}');
     }
     state.tokens.shift();
-    return 'def';
+    return 'sh-def';
   };
 
   function tokenize(stream, state) {
