@@ -2,7 +2,7 @@ CodeMirror.defineMode("karel", function(conf, parserConf) {
     var ERRORCLASS = 'ka-error';
     
     function wordRegexp(words) {
-        return XRegExp("^((" + words.join(")|(") + "))(?=[^_\\pL0-9]|$)", "i");
+        return XRegExp("^((" + words.join(")|(") + "))(?=[^_\\pL0-9]|$)");
     }
     
     var singleOperators = new RegExp("^[\\+\\-\\*/%&|\\^~<>!]");
@@ -21,7 +21,7 @@ CodeMirror.defineMode("karel", function(conf, parserConf) {
     var stringPrefixes = new RegExp("^['\"]", "i");
     var keywords = wordRegexp(commonkeywords);
     var types = wordRegexp(commontypes);
-    var blockKeywords = new RegExp("^(" + commonBlockKeywords.join("|") + ")$", "i");
+    var blockKeywords = new RegExp("^(" + commonBlockKeywords.join("|") + ")$");
 
     // tokenizers
     function tokenBase(stream, state) {
